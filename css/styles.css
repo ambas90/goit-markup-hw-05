@@ -12,8 +12,8 @@
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
   --success: #31d0aa;
   --light-slate: #8e8f99;
-  --background-standard-animation: background-color 250ms
-    cubic-bezier(0.4, 0, 0.2, 1);
+  --dairy: #fcfcfc;
+  --standard-animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -113,7 +113,7 @@ a {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.32px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--standard-animation);
 }
 
 .link:hover,
@@ -128,7 +128,7 @@ a {
   display: block;
   position: absolute;
   width: 100%;
-  top: 42.5px;
+  bottom: -27.5px;
   height: 4px;
   border-radius: 2px;
   background-color: var(--link-active);
@@ -150,7 +150,7 @@ a {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.32px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--standard-animation);
 }
 
 .hero-image {
@@ -191,7 +191,7 @@ a {
   border-radius: 4px;
   box-shadow: 0px 4px 4px 0px var(--button-shadow);
   border: none;
-  transition: var(--background-standard-animation);
+  transition: background-color var(--standard-animation);
 }
 
 .hero-button:hover,
@@ -334,10 +334,9 @@ a {
   padding: 12px 24px;
   border-radius: 4px;
   border: 1px solid var(--cornflower);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--standard-animation),
+    color var(--standard-animation), box-shadow var(--standard-animation),
+    border var(--standard-animation);
 }
 .filter-button:hover,
 .filter-button:focus {
@@ -360,7 +359,7 @@ a {
 
 .project-card {
   display: block;
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow var(--standard-animation);
 }
 .project-card:focus,
 .project-card:hover {
@@ -390,7 +389,7 @@ a {
   line-height: 1.5;
   letter-spacing: 0.32px;
   transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--standard-animation);
 }
 
 .project-name {
@@ -477,8 +476,8 @@ a {
   width: 168px;
   height: 88px;
   fill: var(--light-slate);
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color var(--standard-animation),
+    fill var(--standard-animation);
 }
 
 .customer-icon:hover,
@@ -515,7 +514,7 @@ a {
   align-items: center;
   justify-content: center;
   background-color: var(--primary-brand);
-  transition: var(--background-standard-animation);
+  transition: background-color var(--standard-animation);
 }
 
 .social-icon:hover,
@@ -531,10 +530,61 @@ a {
   align-items: center;
   justify-content: center;
   background-color: var(--primary-brand);
-  transition: var(--background-standard-animation);
+  transition: background-color var(--standard-animation);
 }
 
 .social-icon-footer:hover,
 .social-icon-footer:focus {
   background-color: var(--success);
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background-color: hsla(237, 18%, 22%, 0.4);
+}
+
+.is-hidden {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal-box {
+  display: flex;
+  margin-top: 80px;
+  width: 408px;
+  height: 584px;
+  border-radius: 4px;
+  background-color: var(--dairy);
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+}
+
+.modal-close-button {
+  display: flex;
+  margin-top: 24px;
+  margin-right: 24px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cornflower);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  fill: var(--dark);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color var(--standard-animation),
+    border var(--standard-animation), fill var(--standard-animation);
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus {
+  background-color: var(--link-active);
+  fill: var(--white);
+  border: 1px solid var(--link-active);
 }
